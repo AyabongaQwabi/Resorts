@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{%load wagtailimages_tags %}
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+    {% image page.cover original as cover %}
+     <div class="jumbotron jumbotron-fluid" style="background: url({{cover.url}}) center center no-repeat;">
+          <div class='container'>
+              <h1 class='display-3 bg-inverse' style='color:white;'>{{ page.title}}</h1>
+          </div>
+        </div>
+     </div>
+     <div class="jumbotron jumbotron-fluid" style="background: url({{cover.url}}) center center no-repeat;">
+          <div class='container'>
+              <a class='btn btn-lg' >More</h1>
+          </div>
+        </div>
+     </div>
+
+{% endblock %}
