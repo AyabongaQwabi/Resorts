@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{%load wagtailimages_tags %}
+{% block body_class %}template-articlepage{% endblock %}
+
+{% block content %}
+
+
+    {% for block in page.body %}
+      {% if block.block_type == 'Hero' %}
+        {% image block.value.hero_image original as cover %}
+        <div class="jumbotron jumbotron-fluid" style='background:url({{cover.url}}) center center no-repeat;background-size:cover'>
+             <div class='container'>
+                 <div class='useavatar col-md-6 '>
+
+                 </div>
+
+                 <div class='col-md-6'>
+                     <h1 class='display-3 bg-inverse' style='color:white;'>{{ block.value.hero_heading}}</h1>
+                     <div class='card bg-inverse'>
+                       <div class='card-block '>
+                         <p class='lead card-text' >{{block.value.hero_text | richtext}}</p>
+                       </div>
+                     </div>
+                     {% if block.value.link_text %}
+                        <a class='btn btn-lg btn-success' href='/registration'> {{block.value.link_text}} </a>
+                     {% endif %}
+                 </div>
+
+           </div>
+        </div>
+      {% elif  block.block_type == 'Paragraph' %}
+        <div class="jumbotron jumbotron-fluid">
+               <div class='container'>
+                 <p class='lead'>{{ block.value.text | richtext}} </p>
+               </div>
+        </div>
+      {% else %}
+       <div class="jumbotron jumbotron-fluid bg-inverse" >
+           <div class='container'>
+             {% image block.value.footer_image original as profile %}
+               <div class='useavatar col-md-6 '>
+                   <img src='{{profile.url}}' class='img-rounded' >
+               </div>
+
+               <div class='col-md-6'>
+                  <p class='lead card-text' style='background:springgreen'>{{block.value.footer_text | richtext}}</p>
+              </div>
+
+          </div>
+       </div>
+
+      {% endif %}
+
+
+    {% endfor %}
+
+
+
+
+{% endblock %}

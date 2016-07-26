@@ -13,6 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.0.0-alpha.2/dist/css/bootstrap.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/resorts.css' %}">
 
         {% block extra_css %}
@@ -27,7 +28,7 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/resorts.js' %}"></script>
-
+        <script type="text/javascript" src="{% static 'bootstrap-4.0.0-alpha.2/dist/js/bootstrap.js' %}"></script>
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
