@@ -26,8 +26,9 @@
 
         {% block content %}{% endblock %}
 
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/resorts.js' %}"></script>
+        {# Global javascript #}        
+        <script type="text/javascript" src="{% static 'js/jquery-2.0.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/tether.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'bootstrap-4.0.0-alpha.2/dist/js/bootstrap.js' %}"></script>
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
